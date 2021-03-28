@@ -27,7 +27,7 @@ fs.readdir("./commands/", (err, files) => {
 client.on('ready', () => {
   console.info(`\nLogged in as ${client.user.tag}!\n`);
 
-  client.user.setPresence({ activity: { name: 'Dear Alan Chu...' }, status: 'dnd' })
+  client.user.setPresence({ activity: { name: 'Graphene Development' }, status: 'online' })
     .then(console.log)
     .catch(console.error);
 });
@@ -40,7 +40,7 @@ client.on('message', message => {
     let content = message.content.split(" ");
     let command = content[0].toLowerCase();
     let args = content.slice(1);
-    let prefix = "-";
+    let prefix = "$";
 
     // Checks if message contains a command and runs it
     let commandfile = client.commands.get(command.slice(prefix.length));
