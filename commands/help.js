@@ -1,7 +1,11 @@
 const Discord = require('discord.js')
 
 module.exports.run = async (client, message, args) => {
-  return message.reply("no.");
+  if (!args) {
+    return
+  } else {
+    return
+  }
 }
 
 //The command's name

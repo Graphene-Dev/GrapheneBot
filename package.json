@@ -1,7 +1,7 @@
 {
   "name": "graphenebot",
   "version": "1.0.0",
-  "description": "Bot for the graphene discord server",
+  "description": "Bot for the Graphene Discord server",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
