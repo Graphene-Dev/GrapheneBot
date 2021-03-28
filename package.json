@@ -1,0 +1,25 @@
+{
+  "name": "graphenebot",
+  "version": "1.0.0",
+  "description": "Bot for the graphene discord server",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Graphene-Dev/GrapheneBot.git"
+  },
+  "author": "Grant Bourne & Contributors",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Graphene-Dev/GrapheneBot/issues"
+  },
+  "homepage": "https://github.com/Graphene-Dev/GrapheneBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "ms": "^2.1.3"
+  }
+}
