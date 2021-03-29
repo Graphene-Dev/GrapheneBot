@@ -8,7 +8,8 @@ module.exports.run = async (client, message, args) => {
       .setTimestamp()
       .setFooter('Graphene Bot', 'https://i.imgur.com/wSTFkRM.png') // update this image when stealth sends me it
 
-  if (typeof(args) === "undefined") {
+  console.log(args)
+  if (args.length === 0) {
     helpEmbed.addFields(
         { 
           name: 'Help:', 
@@ -36,7 +37,7 @@ module.exports.run = async (client, message, args) => {
           false
         )
     } catch (err) {
-      console.error(err)
+      console.error("invalid command run")
       return message.channel.send(`Sorry ${message.author}, but ${args[0]} does not seem to be a valid command.`)
     }
   }
