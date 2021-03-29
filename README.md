@@ -1,4 +1,4 @@
-# GrapheneBot
+# Graphene Bot
 
 How to run the bot:
 1) install [node](https://nodejs.org/en/)
@@ -6,4 +6,4 @@ How to run the bot:
 3) create a `.env` file & enter the bot's token
 4) start the bot with `node .`
 
-How to run the bot if ur a dumb dev like stealth then start the bot with `nodemon .` instead of `node .`. If u dum and dont know what nodemon is then refer [here](https://www.npmjs.com/package/nodemon).
+Start the bot with `nodemon .` instead of `node .` when working on development. [Nodemon](https://www.npmjs.com/package/nodemon) will restart the bot every time you make a change to the code.
