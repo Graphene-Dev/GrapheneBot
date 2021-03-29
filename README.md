@@ -6,5 +6,4 @@ How to run the bot:
 3) create a `.env` file & enter the bot's token
 4) start the bot with `node .`
 
-Start the bot with `nodemon .` instead of `node .`. 
-[Nodemon](https://www.npmjs.com/package/nodemon).
+Start the bot with `nodemon .` instead of `node .` when working on development. [Nodemon](https://www.npmjs.com/package/nodemon) will restart the bot every time you make a change to the code.
