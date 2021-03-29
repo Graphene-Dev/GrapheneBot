@@ -17,12 +17,12 @@ module.exports.run = async (client, message, args) => {
     } else if (args[0] === 'remove' || args[0] === 'done' || args[0] === '-') {
         if (!data.hasOwnProperty(uid)) {
             // then there is nothing to remove
-            message.reply("you have no active tasks.")
+            return message.reply("you have no active tasks.")
         }
         // remove it.
     } else {
-        if (!obj.hasOwnProperty(prop)) {
-            message.reply("you have no active tasks.")
+        if (!data.hasOwnProperty(uid)) {
+            return message.reply("you have no active tasks.")
         }
     }
 

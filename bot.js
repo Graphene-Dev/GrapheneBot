@@ -36,15 +36,23 @@ client.on('message', message => {
     // General checks:
     if(message.author.bot) return;
     if(message.channel.type === 'dm') return;
+
     // Common vars
     let content = message.content.split(" ");
     let command = content[0].toLowerCase();
+    //console.log(`running command ${command}`)
     let args = content.slice(1);
     let prefix = "$";
 
+    if (command.substring(0,1) != prefix) return;
+
     // Checks if message contains a command and runs it
     let commandfile = client.commands.get(command.slice(prefix.length));
-    if(commandfile) commandfile.run(client,message,args);
+    if(commandfile) {
+      commandfile.run(client,message,args)
+    } else {
+      console.warn(`Command ${command.slice(prefix.length)} does not exist.`)
+    }
 });
 
 client.login(TOKEN);
