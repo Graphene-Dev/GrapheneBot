@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
       .setTitle('Help')
       .setDescription('The prefix for this bot is `$`.')
       .setTimestamp()
-      .setFooter('Graphene Bot', 'https://i.imgur.com/wSTFkRM.png') // update this image when stealth sends me it
+      .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
 
   console.log(args)
   if (args.length === 0) {
