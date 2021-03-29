@@ -1,4 +1,4 @@
-# GrapheneBot
+# Graphene Bot
 
 How to run the bot:
 1) install [node](https://nodejs.org/en/)
