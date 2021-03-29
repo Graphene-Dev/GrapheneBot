@@ -7,5 +7,6 @@ module.exports.run = async (client, message, args) => {
 
 //The command's name
 module.exports.help = {
-  name: "todo"
+  name: "todo",
+  description: "Shows the current blockchain value."
 }
