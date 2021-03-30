@@ -37,7 +37,7 @@ module.exports.run = async (client, message, args) => {
           false
         )
     } catch (err) {
-      console.error("invalid command run")
+      console.error("Help command -- Invalid args")
       return message.channel.send(`Sorry ${message.author}, but ${args[0]} does not seem to be a valid command.`)
     }
   }
