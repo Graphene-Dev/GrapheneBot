@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
         .setColor('#0027b3')
         .setTitle('Google it.')
         .setURL(url)
-        .setDescription('https://tenor.com/view/levar-burton-reading-rainbow-google-that-shit-google-gif-15062945')
+        .setImage('https://tenor.com/view/levar-burton-reading-rainbow-google-that-shit-google-gif-15062945')
         .setTimestamp()
         .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg');
 
