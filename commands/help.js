@@ -19,6 +19,10 @@ module.exports.run = async (client, message, args) => {
           name: 'Value:', 
           value: 'Get the current value of the blockchain' 
         },
+        {
+          name: 'Google:',
+          value: 'Get a google query'
+        },
         { 
           name: '\u200B', 
           value: 'To get more information about a command, run `$help <command name>`.' 
