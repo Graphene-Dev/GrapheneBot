@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 var fs = require('fs')
 
 module.exports.run = async (client, message, args) => {
+    return // because code doesnt work
+    
     // connect to the JSON db
     const dir = './assets/todo.json'
 
