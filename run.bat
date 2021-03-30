@@ -1,2 +1,2 @@
 npm i
-node .
+node bot.js
