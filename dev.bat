@@ -1,1 +1,1 @@
-nodemon .
+nodemon bot.js
