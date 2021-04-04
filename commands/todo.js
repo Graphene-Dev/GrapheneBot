@@ -34,9 +34,15 @@ module.exports.run = async (client, message, args) => {
             // then there is nothing to remove
             return message.reply("you have no active tasks.")
         }
-        // remove it.
-        var tasknum = args[1]
-        var task2remove = db.getData(`/${uid}/`).tasks[tasknum]
+        if (args.length <= 0) return message.reply("please give a number input in the format: `$todo add <index>`.")
+
+        var tasknum = Number(args[1])
+        if (Number.isNaN(tasknum)) return message.reply("please give a number input in the format: `$todo add <index>`.")
+
+        var userTasks = db.getData(`/${uid}/`).tasks
+        if (userTasks.length === 0) return message.reply("you have no active tasks.")
+
+        userTasks.remove(tasknum)
 
         db.delete(`/${uid}/tasks/${task2remove}`)
 
@@ -46,6 +52,7 @@ module.exports.run = async (client, message, args) => {
             return message.reply("you have no active tasks.")
         }
         var userTasks = db.getData(`/${uid}`).tasks
+        if (userTasks.length === 0) return message.reply("you have no active tasks.")
 
         for (var i = 0; i<userTasks.length; i++) {
             userTasks[i] = `\`${i+1}\`: ${userTasks[i]}`
