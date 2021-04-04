@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
 
         var task = args.slice(1).join(' ')
         if (task.length >= 80) return message.reply("try writing a shorter task.")
-        if (db.getData(`/${uid}`).tasks.length >= 10) return message.reply("you have too many tasks, try completing the ones you have first.")
+        if (db.getData(`/${uid}`).tasks.length > 10) return message.reply("you have too many tasks, try completing the ones you have first.")
         
         db.push(`/${uid}`, {
             tasks:[
