@@ -12,19 +12,38 @@ module.exports.run = async (client, message, args) => {
 
     if (args[0] === 'add' || args[0] === '+') {
         if (!data.hasOwnProperty(uid)) {
-            // add the uid to db
+            db.push('/', `${uid}`);
+            db.push(`/${uid}`, {
+                tasks:[]
+            });
         }
+
+        var task = args.slice(1).join(' ')
+        if (task.length >= 80) return message.reply("try writing a shorter task.")
+        if (db.getData(`/${uid}`).tasks.length >= 10) return message.reply("you have too many tasks, try completing the ones you have first.")
+        
+        db.push(`/${uid}`, {
+            tasks:[
+                task
+            ]
+        }, false);
+
+        message.channel.send(`I have added \`${task}\` to your list of tasks.`)
+
     } else if (args[0] === 'remove' || args[0] === 'done' || args[0] === '-') {
         if (!data.hasOwnProperty(uid)) {
             // then there is nothing to remove
             return message.reply("you have no active tasks.")
         }
         // remove it.
+        var tasknum = args[1]
+
+        db.delete(`/${uid}/${tasknum}`)
     } else {
         if (!data.hasOwnProperty(uid)) {
             return message.reply("you have no active tasks.")
         }
-
+        var userTasks = db.getData(`/${uid}`)
     }
 
     return
