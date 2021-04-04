@@ -45,7 +45,13 @@ module.exports.run = async (client, message, args) => {
         if (!data.hasOwnProperty(uid)) {
             return message.reply("you have no active tasks.")
         }
-        var userTasks = db.getData(`/${uid}`)
+        var userTasks = db.getData(`/${uid}`).tasks
+
+        for (var i = 0; i<userTasks.length; i++) {
+            userTasks[i] = `\`${i+1}\`: ${userTasks[i]}`
+        }
+
+        return message.channel.send(userTasks)
     }
 
     return
