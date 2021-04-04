@@ -12,7 +12,6 @@ module.exports.run = async (client, message, args) => {
 
     if (args[0] === 'add' || args[0] === '+') {
         if (!data.hasOwnProperty(uid)) {
-            db.push('/', `${uid}`);
             db.push(`/${uid}`, {
                 tasks:[]
             });
@@ -28,7 +27,7 @@ module.exports.run = async (client, message, args) => {
             ]
         }, false);
 
-        message.channel.send(`I have added \`${task}\` to your list of tasks.`)
+        return message.channel.send(`I have added \`${task}\` to your list of tasks.`)
 
     } else if (args[0] === 'remove' || args[0] === 'done' || args[0] === '-') {
         if (!data.hasOwnProperty(uid)) {
@@ -37,8 +36,11 @@ module.exports.run = async (client, message, args) => {
         }
         // remove it.
         var tasknum = args[1]
+        var task2remove = db.getData(`/${uid}/`).tasks[tasknum]
 
-        db.delete(`/${uid}/${tasknum}`)
+        db.delete(`/${uid}/tasks/${task2remove}`)
+
+        return message.channel.send(`I have removed \`${task2remove}\` from your list of tasks.`)
     } else {
         if (!data.hasOwnProperty(uid)) {
             return message.reply("you have no active tasks.")
