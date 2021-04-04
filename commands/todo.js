@@ -36,15 +36,23 @@ module.exports.run = async (client, message, args) => {
         }
         if (args.length <= 0) return message.reply("please give a number input in the format: `$todo add <index>`.")
 
-        var tasknum = Number(args[1])
+        var tasknum = Number(args[1])-1
         if (Number.isNaN(tasknum)) return message.reply("please give a number input in the format: `$todo add <index>`.")
 
         var userTasks = db.getData(`/${uid}/`).tasks
         if (userTasks.length === 0) return message.reply("you have no active tasks.")
 
-        userTasks.remove(tasknum)
+        var task2remove = userTasks[tasknum]
+        try {
+            userTasks.splice(tasknum, 1)
+        } catch (err) {
+            return message.reply("that is not a valid index, check `$todo` for your list of tasks & their index's.")
+        }
 
-        db.delete(`/${uid}/tasks/${task2remove}`)
+        var tasks = userTasks
+        db.push(`/${uid}`, {
+            tasks
+        });
 
         return message.channel.send(`I have removed \`${task2remove}\` from your list of tasks.`)
     } else {
