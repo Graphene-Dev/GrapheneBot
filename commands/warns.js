@@ -26,13 +26,32 @@ module.exports.run = async (client, message, args) => {
         return message.reply(`I could not find any warns/infractions for ${user4warn}.`)
     }
 
-    var from = 0;
-    var to = data.length;
-    if (args.length <= 1 && data.length > 4) {
-        to = 4;
-    } else {
+    var startIndex = 1;
+    var endIndex = 4;
 
+    if (args.length > 1) {
+        try {
+            startIndex = parseInt(args[2])*4;
+        } catch (err) {
+            return message.reply('please make page number an integer value.');
+        }
+
+        if (startIndex+4 > data.length-startIndex) {
+            endIndex = data.length;
+        } else {
+            endIndex = startIndex+4;
+        }
     }
+
+    for (var i = startIndex-1; i < endIndex; i++) {
+        warnsEmbed.addField(
+            data[i].date,
+            data[i].reason,
+            false
+        );
+    }
+
+    return message.channel.send(warnsEmbed);
 }
 
 
