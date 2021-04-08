@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
         // then the user wants to ban themselfs...
         message.reply("bro don\'t do it man")
     } else {
-        if (!message.author.hasPermission("BAN_MEMBERS")) return message.reply("You don't have perms! haha");
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("You don't have perms! haha");
 
         try {
         user2ban.ban();
