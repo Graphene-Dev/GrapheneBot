@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 var fs = require('fs')
+var moment = require('moment')
 
 const { JsonDB } = require('node-json-db')
 const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
@@ -17,7 +18,7 @@ module.exports.run = async (client, message, args) => {
     var reason = args.slice(1).join(' ');
 
     // get datetime
-    var date = new Date();
+    var date = moment().format('MMMM Do YYYY');
 
     // connect to db
     var db = new JsonDB(new Config("warns", true, true, '/'));
