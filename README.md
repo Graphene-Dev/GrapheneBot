@@ -7,3 +7,8 @@ How to run the bot:
 4) start the bot with `node .`
 
 Start the bot with `nodemon .` instead of `node .` when working on development. [Nodemon](https://www.npmjs.com/package/nodemon) will restart the bot every time you make a change to the code.
+
+# Preflight checklist:
+* Have node installed
+* run `npm i`
+* Have created a `todo.json` & `warns.json` in the root dir
