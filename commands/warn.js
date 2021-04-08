@@ -30,14 +30,19 @@ module.exports.run = async (client, message, args) => {
         return message.reply(`I think you have the wrong user. ${user2warn.name} is much too cool to be warned.`);
     } else {
         // warn the user
+        if (!data.hasOwnProperty(uid)) {
+            // add uid to db
+            db.push(`/${uid}`, {
+                warns:[]
+            });
+        }
 
-        var warnMessage = '';
+        var warns = db.getData(`/${uid}/warns`);
+        warns.push({reason, date});
 
-        db.push(`/${uid}`, {
-            warns:[
-                warnMessage
-            ]
-        }, false);
+        db.push(`${uid}`, {
+            warns
+        })
     }
 
     return message.reply(messageResponse);
