@@ -11,8 +11,8 @@ module.exports.run = async (client, message, args) => {
     var messageResponse = 'ERROR';
     const user2warn = message.mentions.users.first();
     if (user2warn === undefined) return message.reply("mention a user, using the syntax `$ban <user> [reason]`\nie: `$warn StealthHydrac#8476 being a poopoo`");
-    if (user2warn.bot) return message.reply("you can't warn a bot, silly.")
-    let uid = user2warn.id
+    if (user2warn.bot) return message.reply("you can't warn a bot, silly.");
+    let uid = user2warn.id;
 
     // get reason
     if (args.length <= 1) return message.reply("please provide a warn reason.");
@@ -43,7 +43,7 @@ module.exports.run = async (client, message, args) => {
 
         db.push(`${uid}`, {
             warns
-        })
+        });
     }
 
     return message.reply(messageResponse);
