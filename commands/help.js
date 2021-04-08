@@ -16,12 +16,12 @@ module.exports.run = async (client, message, args) => {
           value: 'This command dumb dumb'
         },
         { 
-          name: 'todo:', 
-          value: 'Add and remove tasks for yourself' 
-        },
-        { 
           name: 'Value:', 
           value: 'Get the current value of the blockchain' 
+        },
+        {
+          name: 'Google:',
+          value: 'Get a google query'
         },
         { 
           name: '\u200B', 
