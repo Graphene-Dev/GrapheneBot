@@ -1,7 +1,8 @@
 const Discord = require('discord.js')
 
 module.exports.run = async (client, message, args) => {
-    var messageResponse = '';
+    // general stuff
+    var messageResponse = 'ERROR';
     const user2ban = message.mentions.users.first();
     if (user2ban === undefined) return message.reply("mention a user, using the syntax `$ban <user>`\nie: `$ban StealthHydrac#8476`");
 
