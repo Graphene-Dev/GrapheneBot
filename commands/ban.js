@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
     } else if (user2ban.id === '718188351508971542') {
         messageResponse = 'I would love to, but I can\'t. 😟';
     } else if (user2ban.id === '301969699258761216') {
-        messageResponse = 'Grant is my daddy, therfor techy is my grandpa, so no banning him!';
+        messageResponse = 'Grant is my daddy, therefore Techy is my grandpa, so no banning him!';
     } else if (user2ban === message.author) {
         // then the user wants to ban themselfs...
         message.reply("bro don\'t do it man")
