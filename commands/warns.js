@@ -51,6 +51,12 @@ module.exports.run = async (client, message, args) => {
         );
     }
 
+    warnsEmbed.addField(
+        '\u200B',
+        `Page 1 of ${Math.ceil(data.length/4)}`,
+        false
+    )
+
     return message.channel.send(warnsEmbed);
 }
 
