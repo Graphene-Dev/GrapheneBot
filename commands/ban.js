@@ -11,10 +11,17 @@ module.exports.run = async (client, message, args) => {
         messageResponse = 'I would love to, but I can\'t. 😟';
     } else if (user2ban.id === '301969699258761216') {
         messageResponse = 'Grant is my daddy, therfor techy is my daddy, so no banning him!';
+    } else if (user2ban === message.author) {
+        // then the user wants to ban themselfs...
+        message.reply("bro don\'t do it man")
     } else {
         if (!message.author.hasPermission("BAN_MEMBERS")) return message.reply("You don't have perms! haha");
 
+        try {
         user2ban.ban();
+        } catch (err) {
+            return message.reply('I don\'t have permission to ban that user. 😟')
+        }
         messageResponse = `I have banned ${user2ban.username}`;
     }
 
