@@ -11,6 +11,7 @@ module.exports.run = async (client, message, args) => {
     var messageResponse = 'ERROR';
     const user2warn = message.mentions.users.first();
     if (user2warn === undefined) return message.reply("mention a user, using the syntax `$ban <user> [reason]`\nie: `$warn StealthHydrac#8476 being a poopoo`");
+    if (user2warn.bot) return message.reply("you can't warn a bot, silly.")
     let uid = user2warn.id
 
     // get reason
