@@ -29,6 +29,8 @@ module.exports.run = async (client, message, args) => {
     } else if (uid === '411883159408476160' || uid === '301969699258761216') {
         return message.reply(`I think you have the wrong user. ${user2warn.username} is much too cool to be warned.`);
     } else {
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("You don't have perms! haha");
+
         // warn the user
         db.push(`/${uid}`, {
             warns:[
