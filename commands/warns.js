@@ -37,12 +37,12 @@ module.exports.run = async (client, message, args) => {
             return message.reply('please make page number an integer value.');
         }
 
-        pagenum = startIndex/4;
+        pagenum = startIndex/4+1;
 
-        if (startIndex+4 > data.length-startIndex) {
+        if (4 > data.length-startIndex) {
             endIndex = data.length;
         } else {
-            endIndex = startIndex+4;
+            endIndex = startIndex+3;
         }
     }
 
