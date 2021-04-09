@@ -28,13 +28,16 @@ module.exports.run = async (client, message, args) => {
 
     var startIndex = 1;
     var endIndex = 4;
+    var pagenum = 1;
 
     if (args.length > 1) {
         try {
-            startIndex = parseInt(args[2])*4;
+            startIndex = parseInt(args[1])*4-4;
         } catch (err) {
             return message.reply('please make page number an integer value.');
         }
+
+        pagenum = startIndex/4;
 
         if (startIndex+4 > data.length-startIndex) {
             endIndex = data.length;
@@ -53,7 +56,7 @@ module.exports.run = async (client, message, args) => {
 
     warnsEmbed.addField(
         '\u200B',
-        `Page 1 of ${Math.ceil(data.length/4)}`,
+        `Page ${pagenum} of ${Math.ceil(data.length/4)}`,
         false
     )
 
