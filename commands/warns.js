@@ -8,7 +8,7 @@ const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
 module.exports.run = async (client, message, args) => {
     // general stuff
     const user4warn = message.mentions.users.first();
-    if (user4warn === undefined) return message.reply("mention a user, using the syntax `$warns <user> [page]`\nie: `$warns @StealthHydrac#8476 1`");
+    if (user4warn === undefined) return message.reply("mention a user, using the syntax `$warns <user> [page]`\nie: `$warns @Dummy#1234 1`");
     uid = user4warn.id
 
     let warnsEmbed = new Discord.MessageEmbed()
