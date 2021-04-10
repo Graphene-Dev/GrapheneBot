@@ -1,9 +1,9 @@
-const Discord = require('discord.js')
-var fs = require('fs')
-var moment = require('moment')
+const Discord = require('discord.js');
+var fs = require('fs');
+var moment = require('moment');
 
-const { JsonDB } = require('node-json-db')
-const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
+const { JsonDB } = require('node-json-db');
+const { Config } = require('node-json-db/dist/lib/JsonDBConfig');
 
 module.exports.run = async (client, message, args) => {
     // general stuff
@@ -16,14 +16,14 @@ module.exports.run = async (client, message, args) => {
       .setTitle('Warns')
       .setDescription(`A list of infractions for user ${user4warn}.`)
       .setTimestamp()
-      .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
+      .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg');
 
     // connect to db
     var db = new JsonDB(new Config("warns", true, true, '/'));
     try {
         var data = db.getData(`/${uid}/warns`);
     } catch (err) {
-        return message.reply(`I could not find any warns/infractions for ${user4warn}.`)
+        return message.reply(`I could not find any warns/infractions for ${user4warn}.`);
     }
 
     var startIndex = 1;
@@ -59,7 +59,7 @@ module.exports.run = async (client, message, args) => {
         '\u200B',
         `Page ${pagenum} of ${Math.ceil(data.length/4)}`,
         false
-    )
+    );
 
     return message.channel.send(warnsEmbed);
 }

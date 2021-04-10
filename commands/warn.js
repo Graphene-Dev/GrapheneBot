@@ -1,9 +1,9 @@
-const Discord = require('discord.js')
-var fs = require('fs')
-var moment = require('moment')
+const Discord = require('discord.js');
+var fs = require('fs');
+var moment = require('moment');
 
-const { JsonDB } = require('node-json-db')
-const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
+const { JsonDB } = require('node-json-db');
+const { Config } = require('node-json-db/dist/lib/JsonDBConfig');
 
 
 module.exports.run = async (client, message, args) => {
@@ -39,7 +39,7 @@ module.exports.run = async (client, message, args) => {
             ]
         }, false);
 
-        return message.channel.send(`Warned ${user2warn} for \`${reason}\`.`)
+        return message.channel.send(`Warned ${user2warn} for \`${reason}\`.`);
     }
 }
 

@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
     // general stuff
@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
         messageResponse = 'Grant is my daddy, therefore Techy is my grandpa, so no banning him!';
     } else if (user2ban === message.author) {
         // then the user wants to ban themselfs...
-        return message.reply("bro don\'t do it man")
+        return message.reply("bro don\'t do it man");
     } else {
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("You don't have perms! haha");
 

@@ -1,8 +1,8 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
-    await message.delete()
-    return message.channel.send("no u")
+    await message.delete();
+    return message.channel.send("no u");
 }
 
 //The command's name

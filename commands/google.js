@@ -1,7 +1,7 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
-    let url = `https://www.google.com/search?q=${args.join("+")}`
+    let url = `https://www.google.com/search?q=${args.join("+")}`;
 
     const googleEmbed = new Discord.MessageEmbed()
         .setColor('#0027b3')
