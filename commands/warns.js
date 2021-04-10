@@ -8,8 +8,8 @@ const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
 module.exports.run = async (client, message, args) => {
     // general stuff
     const user4warn = message.mentions.users.first();
-    if (user4warn === undefined) return message.reply("mention a user, using the syntax `$warns <user> [page]`\nie: `$warns @Dummy#1234 1`");
-    uid = user4warn.id
+    if (user4warn === undefined) user4warn = message.author;
+    uid = user4warn.id;
 
     let warnsEmbed = new Discord.MessageEmbed()
       .setColor('#0027b3')
@@ -68,5 +68,5 @@ module.exports.run = async (client, message, args) => {
 //The command's name
 module.exports.help = {
   name: "warns",
-  description: "Displays a user's warns."
+  description: "Displays a user's warns.\n**syntax:** `$warns <user> [page]`\nie: `$warns @Dummy#1234 1`"
 }
