@@ -7,7 +7,7 @@ const { Config } = require('node-json-db/dist/lib/JsonDBConfig')
 
 module.exports.run = async (client, message, args) => {
     // general stuff
-    const user4warn = message.mentions.users.first();
+    var user4warn = message.mentions.users.first();
     if (user4warn === undefined) user4warn = message.author;
     uid = user4warn.id;
 
@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
 
     var startIndex = 1;
     var endIndex = 4;
-    if (endIndex > data.length) endIndex = data.length
+    if (endIndex > data.length) endIndex = data.length;
     var pagenum = 1;
 
     if (args.length > 1) {
