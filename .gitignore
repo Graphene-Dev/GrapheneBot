@@ -18,3 +18,4 @@ yarn-error.log*
 # repository sepecific
 todo.json
 warns.json
+mute.json
