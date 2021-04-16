@@ -22,12 +22,12 @@ module.exports.run = async (client, message, args) => {
 
     // connect to db
     var db = new JsonDB(new Config("warns", true, true, '/'));
-    var data = db.getData("/");
 
     if (user2warn === message.author) {
         return message.reply('you can\'t warn yourself, silly.');
     } else {
-        if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("You don't have perms! haha");
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("you don't have perms! haha");
+        if (user2warn.hasPermission('ADMINISTRATOR')) return message.reply("you cannot warn a fellow admin.")
 
         // warn the user
         db.push(`/${uid}`, {
