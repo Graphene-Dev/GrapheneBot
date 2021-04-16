@@ -12,3 +12,6 @@ Start the bot with `nodemon .` instead of `node .` when working on development. 
 * Have node installed
 * run `npm i`
 * Have created a `todo.json` & `warns.json` in the root dir
+
+# TODO:
+* edit to use one centeral db
