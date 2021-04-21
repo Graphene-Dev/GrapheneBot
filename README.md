@@ -1,3 +1,4 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/graphene-dev/graphenebot/badge)](https://www.codefactor.io/repository/github/graphene-dev/graphenebot)
 # Graphene Bot
 
 How to run the bot:
