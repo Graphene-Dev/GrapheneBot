@@ -70,7 +70,9 @@ client.on('message', message => {
       }
     }
 
+
 ////////////////////////////////////////////////LOGGING EVENTS////////////////////////////////////////////////
+
 
 client.on("messageDelete", function(messageDelete){
   client.channels.cache
