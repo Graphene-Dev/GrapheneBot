@@ -8,7 +8,6 @@ module.exports.run = async (client, message, args) => {
       .setTimestamp()
       .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg');
 
-  console.log(args);
   if (args.length === 0) {
     helpEmbed.addFields(
         { 
