@@ -73,7 +73,15 @@ client.on('message', message => {
 ////////////////////////////////////////////////LOGGING EVENTS////////////////////////////////////////////////
 
 client.on("messageDelete", (messageDelete) => {
-  client.channels.cache.get("836366149486641172").send(`The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted.`)
+  client.channels.cache
+    .get("836366149486641172")
+    .send(`The message: \`${messageDelete.content}\` by ${messageDelete.author.tag} was deleted.`)
+});
+
+client.on('messageUpdate', (oldMessage, newMessage) => {
+  client.channels.cache
+    .get("836366149486641172")
+    .send(`The message: \`${oldMessage.content} was edited to \`${newMessage.content}\` by ${newMessage.author.tag}`)
 });
 
 });
