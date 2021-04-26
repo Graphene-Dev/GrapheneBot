@@ -69,6 +69,13 @@ client.on('message', message => {
         console.warn(`Command ${command.slice(prefix.length)} does not exist.`)
       }
     }
+
+////////////////////////////////////////////////LOGGING EVENTS////////////////////////////////////////////////
+
+client.on("messageDelete", (messageDelete) => {
+  client.channels.cache.get("836366149486641172").send(`The message : "${messageDelete.content}" by ${messageDelete.author.tag} was deleted.`)
+});
+
 });
 
 client.login(TOKEN);
