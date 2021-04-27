@@ -82,7 +82,7 @@ client.on("messageDelete", function(messageDelete){
 });
 
 client.on('messageUpdate', function(oldMessage, newMessage){
-  if (messageDelete.bot) return;
+  if (newMessage.bot) return;
   client.channels.cache
     .get("836366149486641172")
     .send(`The message: \`${oldMessage.content}\` was edited to \`${newMessage.content}\` by ${newMessage.author.tag}`)
