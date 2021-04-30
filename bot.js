@@ -34,42 +34,42 @@ client.on('ready', () => {
 
 var cooldown = false;
 client.on('message', message => {
-    // General checks:
-    if(message.author.bot) return;
-    if(message.channel.type === 'dm') return;
+  // General checks:
+  if(message.author.bot) return;
+  if(message.channel.type === 'dm') return;
 
-    if (cooldown == true) {
-      //bot is on cooldown
-      console.warn("Bot is on cooldown.")
-      let cooldownEmbed = new Discord.MessageEmbed()
-        .setColor('#8f0707')
-        .setTitle('Cooldown')
-        .setDescription('You are still on 2 second cooldown!\nStop spamming, 🆔!')
-      return message.channel.send(cooldownEmbed)
+  if (cooldown == true) {
+    //bot is on cooldown
+    console.warn("Bot is on cooldown.")
+    let cooldownEmbed = new Discord.MessageEmbed()
+      .setColor('#8f0707')
+      .setTitle('Cooldown')
+      .setDescription('You are still on 2 second cooldown!\nStop spamming, 🆔!')
+    return message.channel.send(cooldownEmbed)
+  } else {
+    // bot is not on cooldown, continue
+    // Common vars
+    let content = message.content.split(" ");
+    let command = content[0].toLowerCase();
+    //console.log(`running command ${command}`)
+    let args = content.slice(1);
+    let prefix = "$";
+
+    if (command.substring(0,1) != prefix) return;
+
+    // Checks if message contains a command and runs it
+    let commandfile = client.commands.get(command.slice(prefix.length));
+    if(commandfile) {
+      commandfile.run(client,message,args)
+      cooldown = true;
+      setTimeout(() => {
+        cooldown = false
+      }, 2000); //Timeout for 2 seconds
     } else {
-      // bot is not on cooldown, continue
-      // Common vars
-      let content = message.content.split(" ");
-      let command = content[0].toLowerCase();
-      //console.log(`running command ${command}`)
-      let args = content.slice(1);
-      let prefix = "$";
-
-      if (command.substring(0,1) != prefix) return;
-
-      // Checks if message contains a command and runs it
-      let commandfile = client.commands.get(command.slice(prefix.length));
-      if(commandfile) {
-        commandfile.run(client,message,args)
-        cooldown = true;
-        setTimeout(() => {
-          cooldown = false
-        }, 2000); //Timeout for 2 seconds
-      } else {
-        console.warn(`Command ${command.slice(prefix.length)} does not exist.`)
-      }
+      console.warn(`Command ${command.slice(prefix.length)} does not exist.`)
     }
-
+  }
+});
 
 ////////////////////////////////////////////////LOGGING EVENTS////////////////////////////////////////////////
 
@@ -86,8 +86,6 @@ client.on('messageUpdate', function(oldMessage, newMessage){
   client.channels.cache
     .get("836366149486641172")
     .send(`The message: \`${oldMessage.content}\` was edited to \`${newMessage.content}\` by ${newMessage.author.tag}`);
-});
-
 });
 
 client.login(TOKEN);
