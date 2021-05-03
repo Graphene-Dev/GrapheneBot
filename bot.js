@@ -105,30 +105,36 @@ client.on("messageDelete", function(messageDelete){
 client.on('messageUpdate', function(oldMessage, newMessage){
   if (newMessage.bot) return;
 
-  let editEmbed = new Discord.MessageEmbed()
-    .setColor('#0027b3')
-    .setTitle('Message Deleted')
-    .setURL(`${newMessage.url}`)
-    .setTimestamp()
-    .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
-    .addFields(
-        { 
-          name: 'Channel:', 
-          value: `${newMessage.guild.channels.cache.get(`${newMessage.channel.id}`).toString()}`
-        },
-        { 
-          name: 'User:',
-          value: `${newMessage.author.tag} [${newMessage.author.id}]` 
-        },
-        {
-          name: 'Old Message:',
-          value: `\`\`\`\n${oldMessage.content}\n\`\`\``
-        },
-        {
-          name: 'New Message:',
-          value: `\`\`\`\n${newMessage.content}\n\`\`\``
-        }
-      );
+  try {
+    let editEmbed = new Discord.MessageEmbed()
+      .setColor('#0027b3')
+      .setTitle('Message Deleted')
+      .setURL(`${newMessage.url}`)
+      .setTimestamp()
+      .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
+      .addFields(
+          { 
+            name: 'Channel:', 
+            value: `${newMessage.guild.channels.cache.get(`${newMessage.channel.id}`).toString()}`
+          },
+          { 
+            name: 'User:',
+            value: `${newMessage.author.tag} [${newMessage.author.id}]` 
+          },
+          {
+            name: 'Old Message:',
+            value: `\`\`\`\n${oldMessage.content}\n\`\`\``
+          },
+          {
+            name: 'New Message:',
+            value: `\`\`\`\n${newMessage.content}\n\`\`\``
+          }
+        );
+    } catch (err) {
+      console.error("error in message edit logging, this is most likely because of a long message");
+      console.error(err);
+      return;
+    }
 
   client.channels.cache
     .get("836366149486641172")
