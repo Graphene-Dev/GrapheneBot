@@ -133,36 +133,30 @@ client.on('messageUpdate', function(oldMessage, newMessage){
     newMessageText = newMessage.content;
   }
 
-  try {
-    let editEmbed = new Discord.MessageEmbed()
-      .setColor('#d9990f')
-      .setTitle('Message Deleted')
-      .setURL(`${newMessage.url}`)
-      .setTimestamp()
-      .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
-      .addFields(
-          { 
-            name: 'Channel:', 
-            value: `${newMessage.guild.channels.cache.get(`${newMessage.channel.id}`).toString()}`
-          },
-          { 
-            name: 'User:',
-            value: `${newMessage.author.tag} [${newMessage.author.id}]` 
-          },
-          {
-            name: 'Old Message:',
-            value: `\`\`\`\n${oldMessageText}\n\`\`\``
-          },
-          {
-            name: 'New Message:',
-            value: `\`\`\`\n${newMessageText}\n\`\`\``
-          }
-        );
-    } catch (err) {
-      console.error("ERROR in message edit logging, this is most likely because of a long message");
-      console.error(err);
-      return;
-    }
+  let editEmbed = new Discord.MessageEmbed()
+    .setColor('#d9990f')
+    .setTitle('Message Deleted')
+    .setURL(`${newMessage.url}`)
+    .setTimestamp()
+    .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
+    .addFields(
+        { 
+          name: 'Channel:', 
+          value: `${newMessage.guild.channels.cache.get(`${newMessage.channel.id}`).toString()}`
+        },
+        { 
+          name: 'User:',
+          value: `${newMessage.author.tag} [${newMessage.author.id}]` 
+        },
+        {
+          name: 'Old Message:',
+          value: `\`\`\`\n${oldMessageText}\n\`\`\``
+        },
+        {
+          name: 'New Message:',
+          value: `\`\`\`\n${newMessageText}\n\`\`\``
+        }
+      );
 
   client.channels.cache
     .get("836366149486641172")
