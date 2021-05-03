@@ -28,8 +28,14 @@ client.on('ready', () => {
   console.info(`\nLogged in as ${client.user.tag}!\n`);
 
   client.user.setPresence({ activity: { name: 'Graphene Development' }, status: 'online' })
-    .then(console.log)
+    .then(console.info)
     .catch(console.error);
+
+  console.log("\n+------------------------------------+");
+  console.log("|            GrapheneBot             |");
+  console.log("|            Grant Bourne            |");
+  console.log("|  (https://github.com/GrantBGreat)  |");
+  console.log("+------------------------------------+");
 });
 
 var cooldown = false;
@@ -70,6 +76,7 @@ client.on('message', message => {
     }
   }
 });
+
 
 ////////////////////////////////////////////////LOGGING EVENTS////////////////////////////////////////////////
 
