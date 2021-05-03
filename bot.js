@@ -108,6 +108,7 @@ client.on('messageUpdate', function(oldMessage, newMessage){
   let editEmbed = new Discord.MessageEmbed()
     .setColor('#0027b3')
     .setTitle('Message Deleted')
+    .setURL(`${newMessage.url}`)
     .setTimestamp()
     .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
     .addFields(
