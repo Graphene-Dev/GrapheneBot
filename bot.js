@@ -83,6 +83,13 @@ client.on('message', message => {
 
 client.on("messageDelete", function(messageDelete){
   if (messageDelete.bot) return;
+
+  var messageText;
+  if (messageDelete.content.length > 800) {
+    messageText = `${messageDelete.content.substring(0, 800)}...`;
+  } else {
+    messageText = messageDelete.content;
+  }
   
   let deleteEmbed = new Discord.MessageEmbed()
     .setColor('#a80f0f')
@@ -100,7 +107,7 @@ client.on("messageDelete", function(messageDelete){
         },
         {
           name: 'Message:',
-          value: `\`\`\`\n${messageDelete.content}\n\`\`\``
+          value: `\`\`\`\n${messageText}\n\`\`\``
         }
       );
 
