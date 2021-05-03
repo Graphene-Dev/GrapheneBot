@@ -76,9 +76,30 @@ client.on('message', message => {
 
 client.on("messageDelete", function(messageDelete){
   if (messageDelete.bot) return;
+  
+  let deleteEmbed = new Discord.MessageEmbed()
+    .setColor('#0027b3')
+    .setTitle('Message Deleted')
+    .setTimestamp()
+    .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
+    .addFields(
+        { 
+          name: 'Channel:', 
+          value: `${message.guild.channels.cache.get(`${messageDelete.channel.id}`).toString()}`
+        },
+        { 
+          name: 'User:',
+          value: `${messageDelete.author.tag} [${messageDelete.author.id}]` 
+        },
+        {
+          name: 'Message:',
+          value: `\`\`\`\n${messageDelete.content}\n\`\`\``
+        }
+      );
+
   client.channels.cache
     .get("836366149486641172")
-    .send(`The message: \`${messageDelete.content}\` by ${messageDelete.author.tag} was deleted.`);
+    .send(deleteEmbed);
 });
 
 client.on('messageUpdate', function(oldMessage, newMessage){
