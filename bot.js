@@ -85,7 +85,7 @@ client.on("messageDelete", function(messageDelete){
   if (messageDelete.bot) return;
   
   let deleteEmbed = new Discord.MessageEmbed()
-    .setColor('#0027b3')
+    .setColor('#a80f0f')
     .setTitle('Message Deleted')
     .setTimestamp()
     .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
