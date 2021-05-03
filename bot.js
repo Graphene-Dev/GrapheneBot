@@ -119,6 +119,20 @@ client.on("messageDelete", function(messageDelete){
 client.on('messageUpdate', function(oldMessage, newMessage){
   if (newMessage.bot) return;
 
+  var oldMessageText;
+  if (oldMessage.content.length > 475) {
+    oldMessageText = `${oldMessage.content.substring(0, 475)}...`;
+  } else {
+    oldMessageText = oldMessage.content;
+  }
+
+  var newMessageText;
+  if (newMessage.content.length > 475) {
+    newMessageText = `${newMessage.content.substring(0, 475)}...`;
+  } else {
+    newMessageText = newMessage.content;
+  }
+
   try {
     let editEmbed = new Discord.MessageEmbed()
       .setColor('#d9990f')
@@ -137,11 +151,11 @@ client.on('messageUpdate', function(oldMessage, newMessage){
           },
           {
             name: 'Old Message:',
-            value: `\`\`\`\n${oldMessage.content}\n\`\`\``
+            value: `\`\`\`\n${oldMessageText}\n\`\`\``
           },
           {
             name: 'New Message:',
-            value: `\`\`\`\n${newMessage.content}\n\`\`\``
+            value: `\`\`\`\n${newMessageText}\n\`\`\``
           }
         );
     } catch (err) {
