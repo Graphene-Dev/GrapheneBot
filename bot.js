@@ -82,7 +82,7 @@ client.on('message', message => {
 
 
 client.on("messageDelete", function(messageDelete){
-  if (messageDelete.bot) return;
+  if (messageDelete.bot || messageDelete.author.tag === "GitHub#0000") return;
 
   var messageText;
   if (messageDelete.content.length > 800) {
@@ -117,7 +117,7 @@ client.on("messageDelete", function(messageDelete){
 });
 
 client.on('messageUpdate', function(oldMessage, newMessage){
-  if (newMessage.bot) return;
+  if (newMessage.bot || newMessage.author.tag === "GitHub#0000") return;
 
   var oldMessageText;
   if (oldMessage.content.length > 475) {
