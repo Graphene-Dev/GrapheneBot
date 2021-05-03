@@ -85,7 +85,7 @@ client.on("messageDelete", function(messageDelete){
     .addFields(
         { 
           name: 'Channel:', 
-          value: `${message.guild.channels.cache.get(`${messageDelete.channel.id}`).toString()}`
+          value: `${messageDelete.guild.channels.cache.get(`${messageDelete.channel.id}`).toString()}`
         },
         { 
           name: 'User:',
@@ -104,9 +104,34 @@ client.on("messageDelete", function(messageDelete){
 
 client.on('messageUpdate', function(oldMessage, newMessage){
   if (newMessage.bot) return;
+
+  let editEmbed = new Discord.MessageEmbed()
+    .setColor('#0027b3')
+    .setTitle('Message Deleted')
+    .setTimestamp()
+    .setFooter('Graphene Bot', 'https://i.imgur.com/UN5265k.jpg')
+    .addFields(
+        { 
+          name: 'Channel:', 
+          value: `${newMessage.guild.channels.cache.get(`${newMessage.channel.id}`).toString()}`
+        },
+        { 
+          name: 'User:',
+          value: `${newMessage.author.tag} [${newMessage.author.id}]` 
+        },
+        {
+          name: 'Old Message:',
+          value: `\`\`\`\n${oldMessage.content}\n\`\`\``
+        },
+        {
+          name: 'New Message:',
+          value: `\`\`\`\n${newMessage.content}\n\`\`\``
+        }
+      );
+
   client.channels.cache
     .get("836366149486641172")
-    .send(`The message: \`${oldMessage.content}\` was edited to \`${newMessage.content}\` by ${newMessage.author.tag}`);
+    .send(editEmbed);
 });
 
 client.login(TOKEN);
