@@ -131,7 +131,7 @@ client.on('messageUpdate', function(oldMessage, newMessage){
           }
         );
     } catch (err) {
-      console.error("error in message edit logging, this is most likely because of a long message");
+      console.error("ERROR in message edit logging, this is most likely because of a long message");
       console.error(err);
       return;
     }
