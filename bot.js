@@ -114,7 +114,7 @@ client.on('messageUpdate', function(oldMessage, newMessage){
 
   try {
     let editEmbed = new Discord.MessageEmbed()
-      .setColor('#0027b3')
+      .setColor('#d9990f')
       .setTitle('Message Deleted')
       .setURL(`${newMessage.url}`)
       .setTimestamp()
