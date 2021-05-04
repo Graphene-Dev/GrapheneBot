@@ -166,11 +166,15 @@ client.on('messageUpdate', function(oldMessage, newMessage){
 client.on("guildMemberAdd", function(member){
   console.info(`New member: ${member.tag}`);
 
-  
+  var joinMessages = [
+      `Whalecum, ${member}!`,
+      `Com'on over and mine some Graphene, ${member}!`,
+      `Welcome to Graphene, ${member} ||we take bribes. At our patreon.||` //TODO: add link to patreon
+    ]
 
   client.channels.cache
     .get("825457139467550801")
-    .send(".");
+    .send(joinMessages[Math.floor(Math.random() * joinMessages.length)]);
 });
 
 client.login(TOKEN);
