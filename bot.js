@@ -163,4 +163,8 @@ client.on('messageUpdate', function(oldMessage, newMessage){
     .send(editEmbed);
 });
 
+client.on("guildMemberAdd", function(member){
+  console.info(`New member: ${member.tag}`);
+});
+
 client.login(TOKEN);
