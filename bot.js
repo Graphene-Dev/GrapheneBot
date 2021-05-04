@@ -165,6 +165,12 @@ client.on('messageUpdate', function(oldMessage, newMessage){
 
 client.on("guildMemberAdd", function(member){
   console.info(`New member: ${member.tag}`);
+
+  
+
+  client.channels.cache
+    .get("825457139467550801")
+    .send(".");
 });
 
 client.login(TOKEN);
