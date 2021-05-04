@@ -82,7 +82,7 @@ client.on('message', message => {
 
 
 client.on("messageDelete", function(messageDelete){
-  if (messageDelete.bot || messageDelete.author.tag === "GitHub#0000") return;
+  if (messageDelete.bot || messageDelete.author.tag === "GitHub#0000" || messageDelete.author.tag === "Rythm#3722") return;
 
   var messageText;
   if (messageDelete.content.length > 800) {
@@ -117,7 +117,7 @@ client.on("messageDelete", function(messageDelete){
 });
 
 client.on('messageUpdate', function(oldMessage, newMessage){
-  if (newMessage.bot || newMessage.author.tag === "GitHub#0000") return;
+  if (newMessage.bot || newMessage.author.tag === "GitHub#0000" || newMessage.author.tag === "Rythm#3722") return;
 
   var oldMessageText;
   if (oldMessage.content.length > 475) {
@@ -169,7 +169,8 @@ client.on("guildMemberAdd", function(member){
   var joinMessages = [
       `Whalecum, ${member}!`,
       `Com'on over and mine some Graphene, ${member}!`,
-      `Welcome to Graphene, ${member} ||we take bribes. At our patreon.||` //TODO: add link to patreon
+      `Welcome to Graphene, ${member} ||we take bribes. At our patreon.||`, //TODO: add link to patreon
+      `Welcome ${member} this discord has great quotes, just like this one:\n> Come support our patreon and remeber, by paying us, you're just paying yourself!\n-- Techyguy 2021`
     ]
 
   client.channels.cache
