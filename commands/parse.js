@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
         return message.reply("please use the correct syntax `$parse <messageCount>`.\nRemember that `messageCount` has to be in an `integer` format.");
     }
 
-    
+    message.channel.bulkDelete(messageCount + 1).catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
 }
 
 //The command's name
