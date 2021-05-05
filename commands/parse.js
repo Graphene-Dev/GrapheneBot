@@ -8,6 +8,13 @@ module.exports.run = async (client, message, args) => {
 
     message.channel.bulkDelete(messageCount + 1)
         .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+
+    message.channel
+        .send(`✅ I have deleted ${messageCount} messages!`)
+        .then(msg => {
+            msg.delete({ timeout: 10000 })
+        })
+        .catch(console.error)
 }
 
 //The command's name
