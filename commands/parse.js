@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
         .then(msg => {
             msg.delete({ timeout: 10000 })
         })
-        .catch(console.error)
+        .catch(console.error);
 }
 
 //The command's name
